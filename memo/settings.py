@@ -49,6 +49,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'memo.urls'
+TEMPLATES_DIR=os.path.join(BASE_DIR,'templates')
+STATIC_DIR=os.path.join(BASE_DIR,'static')
 
 TEMPLATES = [
     {
