@@ -22,7 +22,7 @@ if not DEBUG:
     import django_heroku
     django_heroku.settings(locals())
 
-ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'journey-django-memo.herokuapp.com']
 
 
 # Application definition
@@ -48,8 +48,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'memo.urls'
-TEMPLATES_DIR=os.path.join(BASE_DIR,'templates')
-STATIC_DIR=os.path.join(BASE_DIR,'static')
 
 TEMPLATES = [
     {
@@ -117,11 +115,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
 
 # Configure Django App for Heroku.
 import django_heroku
