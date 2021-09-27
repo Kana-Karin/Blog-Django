@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- UIkit CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.7.3/dist/css/uikit.min.css" />
+</head>
+<body>
+     <!--Nav-->
+     <nav class="uk-navbar-container uk-margin" uk-navbar>
+        <div class="uk-navbar-left">
+    
+            <a class="uk-navbar-item uk-logo" href="#">メモ with Django</a>
+    
+            <ul class="uk-navbar-nav">
+                <li>
+                    <a href="{% url 'app:index' %}">
+                        <span class="uk-icon uk-margin-small-right" uk-icon="icon: home"></span>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'app:post' %}">
+                        <span class="uk-icon uk-margin-small-right" uk-icon="icon: pencil"></span>
+                        Post
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'app:about' %}">
+                        <span class="uk-icon uk-margin-small-right" uk-icon="icon: info"></span>
+                        About this site
+                    </a>
+                </li>
+            </ul>  
+        </div>
+    </nav>
+    <section class="detail">
+        <div class="uk-section uk-section-muted">
+            <div class="uk-container">
+                <div>
+                    <a href="{% url 'app:index' %}">ホームに戻る</a>
+                  </div>
+        
+                <h3>{{ memo.title }}</h3>
+        
+                <div class="uk-grid-match uk-child-width-1-3@m" uk-grid>
+                    <div>
+                        {{ memo.text | linebreaks | urlize }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form method="post" action="{% url 'app:delete_memo' memo.pk %}">{% csrf_token %}
+            <button class="uk-button uk-button-secondary" type="submit" onclick='return confirm("本当に削除しますか？");'>削除</button>
+          </form>
+    </section>
+<!-- UIkit JS -->
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.7.3/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.7.3/dist/js/uikit-icons.min.js"></script>
+</body>
+</html>

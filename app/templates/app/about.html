@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- UIkit CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.7.3/dist/css/uikit.min.css" />
+
+<!--Google fonts-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi&family=Montserrat:wght@100&display=swap" rel="stylesheet">
+
+<!--Custom CSS-->
+<link rel="stylesheet" href="{% static 'app/style.css' %}">
+
+    <title>メモ with Django</title>
+</head>
+<body>
+    <!--Nav-->
+    <nav class="uk-navbar-container uk-margin" uk-navbar>
+        <div class="uk-navbar-left">
+    
+            <a class="uk-navbar-item uk-logo" href="#">メモ with Django</a>
+    
+            <ul class="uk-navbar-nav">
+                <li>
+                    <a href="{% url 'app:index' %}">
+                        <span class="uk-icon uk-margin-small-right" uk-icon="icon: home"></span>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'app:post' %}">
+                        <span class="uk-icon uk-margin-small-right" uk-icon="icon: pencil"></span>
+                        Post
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'app:about' %}">
+                        <span class="uk-icon uk-margin-small-right" uk-icon="icon: info"></span>
+                        About this site
+                    </a>
+                </li>
+            </ul>  
+        </div>
+    </nav>
+<section class="about">
+    <div class="uk-section uk-section-muted">
+        <div class="uk-container">
+    
+            <h3>About this site</h3>
+    
+            <div class="uk-grid-match uk-child-width-1-3@m" uk-grid>
+                <div>
+                    <p>Django学習</p>
+                </div>
+                <div>
+                    <p></p>
+                </div>
+                <div>
+                    <p></p>
+                </div>
+            </div>
+    
+        </div>
+    </div>
+</section>
+
+
+<!-- UIkit JS -->
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.7.3/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.7.3/dist/js/uikit-icons.min.js"></script>
+</body>
+</html>
